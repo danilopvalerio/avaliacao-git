@@ -1,3 +1,4 @@
+// Obtém o objeto html pelo ID, neste caso o id é moveBtn
 const moveBtn = document.getElementById("moveBtn");
 
 // Adiciona um "ouvinte de eventos" que dispara uma função quando o mouse passa por cima
@@ -27,6 +28,17 @@ const addTextBtn = document.getElementById("addTextBtn");
 const textContainer = document.getElementById("textContainer");
 let messageCount = 0; // Um contador para numerar as mensagens
 
+// Função de repetição que vai inserir sempre 3 pontos no fim do elemento html de id textContainer
+function contagemPorPontos() {
+  for (let index = 0; index < 3; index++) {
+    const newParagraph = document.createElement("p");
+    newParagraph.textContent = `\n.`;
+    setTimeout(() => {
+      textContainer.appendChild(newParagraph);
+    }, 1000);
+  }
+}
+
 // Adiciona um "ouvinte de eventos" que dispara uma função ao ser clicado
 addTextBtn.addEventListener("click", function () {
   messageCount++; // Incrementa o contador
@@ -42,4 +54,5 @@ addTextBtn.addEventListener("click", function () {
 
   // Adiciona o novo parágrafo como um "filho" do contêiner de texto
   textContainer.appendChild(newParagraph);
+  contagemPorPontos();
 });
